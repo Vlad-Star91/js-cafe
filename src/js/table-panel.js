@@ -1,5 +1,7 @@
 import cafe from "./classCafe.js"
 import createOrderList from "./order-list.js"
+import tablesTmp from "../templates/table-tmp.hbs"
+
 
 const refs = {
     body: document.body,
@@ -12,29 +14,10 @@ console.log(refs.body);
 
 cafe.checkTables()
 
-
-const getTableMarkup = (tableNum) => {
-    return `
-<li class="table" data-id="${tableNum}">
-  <h3 class="table-title">Table - ${tableNum}</h3>
-  <button class="table-btn" data-action="open-order">Open order list</button>
-</li>
-`
-}
-console.log(getTableMarkup(3));
-
 const tables = cafe.presentWorkers[0].tables;
-// console.log(cafe.presentWorkers);
-// console.log(cafe.presentWorkers[0].tables);
+console.log(tables);
 
-// const itemsMarkup = tables.map((elem) => {
-//     return getTableMarkup(elem)
-// }).join("");
-// console.log(itemsMarkup);
-
-const itemsMarkup = tables.reduce((acc, el) => {
-    return acc + getTableMarkup(el);
-}, '')
+const itemsMarkup = tablesTmp({ tables: tables })
 
 const handleOpenOrder = (e) => {
     if (e.target.nodeName !== "BUTTON") return;

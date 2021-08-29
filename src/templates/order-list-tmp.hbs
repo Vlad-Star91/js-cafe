@@ -1,0 +1,13 @@
+
+<h2> Stol - {{tableNum}} </h3>
+    <ul>
+        {{#each orderList}}
+    <li id="{{this.id}}">
+        <span> {{this.name}} </span>
+        <span> 0 </span>
+        <button type="button" data-action="add">+</button>
+        <button type="button" data-action="remove">-</button>
+        <button type="button" data-action="reset">reset</button>
+    </li>
+    {{/each}}
+    </ul>

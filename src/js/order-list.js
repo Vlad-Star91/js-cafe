@@ -1,22 +1,10 @@
 import cafe from "./classCafe.js"
+import orderListTmp from "../templates/order-list-tmp.hbs"
 
-const orderItemsMarkup = cafe.menu.reduce((acc, el) => {
-    return (acc + `<li id="${el.id}">
-        <span> ${el.name} </span>
-        <span> 0 </span>
-        <button type="button" data-action="add">+</button>
-        <button type="button" data-action="remove">-</button>
-        <button type="button" data-action="reset">reset</button>
-    </li>`);
-}, '')
- 
+
 const createOrderList = (tableNum, parentNode) => {
-    const markup = `
-<h2> Stol - ${tableNum} </h3>
-<ul>
-   ${orderItemsMarkup}
-</ul>
-`;
-    parentNode.insertAdjacentHTML("beforeend", markup);
+    
+    const orderTemplateMarkup = orderListTmp({ tableNum, orderList: cafe.menu });
+    parentNode.insertAdjacentHTML("beforeend", orderTemplateMarkup);
 };
 export default createOrderList

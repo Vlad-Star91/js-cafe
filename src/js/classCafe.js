@@ -93,7 +93,7 @@ const menuMap = menu.reduce((acc, el) => {
     return menuMap;
     } 
 
-    dishFinish (tableNum, dishName, quantity) {
+    removeDishFinish (tableNum, dishName, quantity) {
        const curTable = this.findTable(tableNum);
        console.log(curTable);
        curTable.prepearing = curTable.prepearing.map(el =>{
@@ -115,19 +115,19 @@ const menuMap = menu.reduce((acc, el) => {
 
 
 
-const cafeArgs = {menu, tables, workers,}
-const cafe = new Cafe(cafeArgs);
-cafe.checkTables() 
-cafe.addDish(5, "capuchino")
-cafe.addDish(5, "capuchino")
-cafe.addDish(5, "capuchino")
-cafe.addDish(5, "capuchino")
-cafe.addDish(5, "water-0.5")
-cafe.addDish(5, "zavarnoe")
-cafe.prepareDish(5)
-console.log(cafe.findTable(5));
-cafe.dishFinish (5, "Капучино", 2)
-cafe.dishFinish (5, "Капучино", 2)
+// const cafeArgs = {menu, tables, workers,}
+// const cafe = new Cafe(cafeArgs);
+// cafe.checkTables() 
+// cafe.addDish(5, "capuchino")
+// cafe.addDish(5, "capuchino")
+// cafe.addDish(5, "capuchino")
+// cafe.addDish(5, "capuchino")
+// cafe.addDish(5, "water-0.5")
+// cafe.addDish(5, "zavarnoe")
+// cafe.prepareDish(5)
+// console.log(cafe.findTable(5));
+// cafe.dishFinish (5, "Капучино", 2)
+// cafe.dishFinish (5, "Капучино", 2)
 
 // cafe.getPresentWorkers()
 
@@ -136,3 +136,7 @@ cafe.dishFinish (5, "Капучино", 2)
 
 // 4. Написать функцию для обработки заказа на кухне и на баре, которая принимает объект tabel(номер столика) и если в нём есть заполненное свойствами значение currentOrder, создает массив вида - пример: ["Капучино - 2", "Торт Наполеон - 2", "Пирожное заварное - 1"] и добавляет
 // этот массив в свойстово prepearing в объекте соотвоетствующего столика.
+
+const cafe = new Cafe({ menu, tables, workers });
+export default cafe 
+ 

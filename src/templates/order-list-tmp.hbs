@@ -1,13 +1,15 @@
-
-<h2> Stol - {{tableNum}} </h3>
-    <ul>
-        {{#each orderList}}
-    <li id="{{this.id}}">
+<section id='oreder-list-{{tableNum}}'>
+  <h2> Stol - {{tableNum}} </h2>
+  <ul>
+    {{#each orderList}}
+      <li id='{{this.id}}'>
         <span> {{this.name}} </span>
-        <span> 0 </span>
-        <button type="button" data-action="add">+</button>
-        <button type="button" data-action="remove">-</button>
-        <button type="button" data-action="reset">reset</button>
-    </li>
+        <span class='quantity'> 0 </span>
+        <button type='button' data-action='add'>+</button>
+        <button type='button' data-action='remove'>-</button>
+        <button type='button' data-action='reset'>reset</button>
+      </li>
     {{/each}}
-    </ul>
+  </ul>
+  <button type='button' data-action='close'>CloseOrder</button>
+</section>
